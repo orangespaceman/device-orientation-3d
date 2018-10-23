@@ -1,0 +1,122 @@
+/* elements */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #506080;
+  font-family: Georgia, serif;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+/* Wrapper */
+
+.Wrapper {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3d */
+
+.Scene {
+  background: rgba(0,0,0,0.1);
+  box-shadow: 0 0 25px 0 rgba(0,0,0,0.1);
+  position: relative;
+  margin: 0 auto;
+  width: 50vw;
+  height: 60vh;
+  perspective: 1000px;
+  transform: translate(0);
+}
+
+.Device {
+  transform-style: preserve-3d;
+  transform-origin: 25vw 30vh;
+}
+
+.Device > * {
+  position: absolute;
+}
+
+.Device-front {
+  width: 50vw;
+  height: 60vh;
+  background: #f90;
+  transform: translateX(0) rotateY(0deg) translateZ(15px);
+}
+
+.Device-back {
+  width: 50vw;
+  height: 60vh;
+  background: #f60;
+  transform: translateX(0) translateZ(-15px);
+}
+
+.Device-left {
+  width: 30px;
+  height: 60vh;
+  background: #f30;
+  transform: translateX(-15px) rotateY(-90deg);
+  backface-visibility: hidden;
+}
+
+.Device-right {
+  width: 30px;
+  height: 60vh;
+  background: #f30;
+  transform: translateX(calc(50vw - 15px)) rotateY(90deg);
+  backface-visibility: hidden;
+}
+
+.Device-top {
+  width: 50vw;
+  height: 30px;
+  background: #f30;
+  transform: rotateX(90deg) translateZ(15px);
+  backface-visibility: hidden;
+}
+
+.Device-bottom {
+  width: 50vw;
+  height: 30px;
+  background: #f30;
+  transform: rotateX(-90deg) translateZ(calc(60vh - 15px));
+  backface-visibility: hidden;
+}
+
+/* debug */
+
+.Debug {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0.2rem;
+  z-index: 3;
+  font-size: 0.75rem;
+  text-align: left;
+  opacity: 1;
+}
+
+.Debug-block {
+  margin: 0;
+}
